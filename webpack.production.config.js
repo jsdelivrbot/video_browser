@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
     entry: [
@@ -39,5 +41,8 @@ module.exports = {
       new webpack.ProvidePlugin({
         "React": "react",
       }),
+      new CopyWebpackPlugin([
+          { from: './style/**/*', to: '.'},
+      ]),
     ]
 };
